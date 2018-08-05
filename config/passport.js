@@ -10,7 +10,6 @@ passport.use(new LocalStrategy((name, password, done) => (
     .catch(err => done(null, false)))));
 
 passport.serializeUser((user, done) => {
-  console.log(user)
   done(null, user.id);
 });
 
@@ -19,3 +18,4 @@ passport.deserializeUser((id, done) => {
     .then(user => done(null, user))
     .catch(done);
 });
+

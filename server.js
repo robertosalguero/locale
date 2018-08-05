@@ -19,7 +19,7 @@ require('./config/passport');
 app.use(logger('dev'));
 
 app.use(session({
-    secret:            'lambda-secret',
+    secret:            'project-ii',
     resave:            false, // info on resave: https://github.com/expressjs/session#resave
     saveUninitialized: false, // info on saveUninitialized: https://github.com/expressjs/session#saveuninitialized
   }));

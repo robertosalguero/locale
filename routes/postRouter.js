@@ -1,12 +1,10 @@
 const express        = require('express');
-// const { Converter }  = require('showdown');
 
 const authController = require('../controllers/authController');
 const postController = require('../controllers/postController');
 const viewController = require('../controllers/viewsController');
 
 const postRouter = express.Router();
-// const converter    = new Converter({ tables: true });
 
 postRouter.use(authController.usersOnly);
 
@@ -21,6 +19,7 @@ const handle404 = (err, req, res, next) => {
 };
 
 postRouter.route('/')
+  .post(postController.createNewPost)
   .get(postController.index, viewController.showAll);
 
 

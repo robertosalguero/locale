@@ -1,6 +1,5 @@
 \c proj_dev
 
-DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS posts;
 
 CREATE TABLE users (
@@ -9,9 +8,11 @@ CREATE TABLE users (
     password_digest VARCHAR (255)
 );
 
+
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
     content TEXT,
-    users_id INTEGER REFERENCES users (id),
+    username VARCHAR (255) REFERENCES users (name),
+    user_id INTEGER REFERENCES users (id),
     created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );

@@ -47,5 +47,5 @@ async function login(name, password) {
 module.exports = {
   register,
   login,
-  findById
+  findById,
 };

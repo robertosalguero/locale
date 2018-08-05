@@ -27,6 +27,7 @@
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "pg-promise": "^8.4.5",
-    "req-flash": "0.0.3"
+    "req-flash": "0.0.3",
+    "showdown": "^1.8.6"
   }
 }
