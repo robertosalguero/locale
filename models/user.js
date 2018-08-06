@@ -17,7 +17,7 @@ function register(name, password) {
 
 function findById(id) {
   return db.one(`
-    SELECT id, name
+    SELECT *
     FROM users
     WHERE id = $1
   `, id);
@@ -29,6 +29,8 @@ function findByUsername(name) {
       WHERE name = $1
     `, name);
 }
+
+
 async function login(name, password) {
   try {
     const user = await findByUsername(name);
@@ -42,10 +44,22 @@ async function login(name, password) {
     throw new Error('Unauthorized');
   }
 }
+  function update(user) {
+    return db.one(`
+    UPDATE users
+    SET 
+      name = $/name/,
+      bio = $/bio/
+    WHERE id = $/id/
+    RETURNING *
+    `, user);
+  }
 
 
 module.exports = {
   register,
   login,
+  update,
   findById,
+  
 };

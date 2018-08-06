@@ -8,9 +8,10 @@ authRouter.route('/login')
   .get(control.renderLogin)
   .post(control.handleLogin);
 
+  authRouter.route('/register')
+  .get(control.renderRegister)
+  .post(control.handleRegister);
 
-authRouter.get('/logout', (req, res) => {
-  control.handleLogout();
-});
+authRouter.get('/logout', control.handleLogout);
 
 module.exports = authRouter;

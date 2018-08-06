@@ -3,42 +3,84 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Quote sta gram!</title>
+    <title></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Cookie|Montserrat|Open+Sans:400,400i,700" rel="stylesheet" />
     <link rel="stylesheet" href="/css/styles.css" />
-
-
   </head>
   <body>
-        <section class="section">
-                <div class="columns">
+        <nav class="navbar is-link" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                  <a class="navbar-item" href="/">
+                    <i></i>chat
+                  </a>
+          
+                  <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+          
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                  </a>
+                </div>
+                <div class="navbar-menu">
+                  <div class="navbar-start">
+                    <!-- navbar items -->
+                    <a class="navbar-item">
+                      Home
+                    </a>
+                  </div>
+                </div>
+          
+                <div class="navbar-end">
+                  <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link"><i class="fas fa-user fa-fw"></i>&nbsp;USERNAME
+                    </a>
+                    <div class="navbar-dropdown">
+                      <a class="navbar-item">Dashboard</a>
+                      <a class="navbar-item">Profile</a>
+                      <a class="navbar-item">Settings</a>
+                      <hr class="navbar-divider" />
+                      <form action="/auth/logout" method="GET">
+                      <input class="navbar-item" type="submit">Logout</input>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+    <section class="section">
+        <div class="columns">
         <aside class="column is-one-quarter">
-                <div class="box has-background-white-bis">
-                  <h4 class="title is-4">Wassup</h4>
-                  <form action="/main" method="POST">
+            <div class="box has-background-white-bis">
+                <img src="http://via.placeholder.com/300x250">
+                <big><b><%= user.name %></b></big></br>
+                <small><i>      <%= user.bio %></i></small></br></br>
+                <form action='/users/<%= user.id %>?_method="GET"'>
+                <input type="submit" value="Edit"/>
+                </form>
+                <form action="/main" method="POST">
                     <div class="field">
                       <div class="control">
                         <textarea class="textarea" name="content"></textarea>
                       </div>
                     </div>
-                <div class="control">
-                <input class="button is-info pull-right is-large" type="submit" />
-                </div>
+                    <div class="control">
+                        <input class="button is-info pull-right" type="submit" />
+                    </div>
                 </form>
-                </div>
-                </aside>
-
-
-    <div class="column">
-        <hr />
-        <% posts.forEach((posts) => { %>
-            <%- include('./partials/post.ejs', {posts: posts}) %>
-            <% }) %>
-      </div>
+                <hr />
+                <img src="http://via.placeholder.com/300x250">
+            </div>
+        </aside>
+        <div class="column">
+                <% posts.forEach((posts) => { %>
+                    <%- include('./partials/post.ejs', {posts: posts})%>
+                <% }) %>
+                <hr />
+          </div>
     </div>
 </section>
 </body>
+<script src="views.js"></script>
 </html>
 

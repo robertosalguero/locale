@@ -8,15 +8,18 @@ const postRouter = express.Router();
 
 postRouter.use(authController.usersOnly);
 
-
-const showJSON = (req, res) => {
-  res.json(res.locals.data);
-};
-
 const handle404 = (err, req, res, next) => {
   console.error(err);
   res.sendStatus(404);
 };
+
+const handle200 = (err, req, res, next) => {
+  console.error(err);
+  res.sendStatus(200);
+};
+
+postRouter.route('/:id')
+  .delete(postController.destroy, handle200);
 
 postRouter.route('/')
   .post(postController.createNewPost)

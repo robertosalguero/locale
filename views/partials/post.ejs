@@ -6,9 +6,17 @@
         </figure>
         <div class="media-content">
           <div class="content">
+                <h4 class="post"><%= posts.author %></h4>
+                
             <p>
               <span class="post"><%= posts.content %></span>
             </p>
+            <span class="post"><small><%= posts.created_at %></small></span>
+                <form 
+                method="POST" 
+                action="/main/<%= posts.id %>?_method=DELETE">
+                <button type="submit">Delete</button>
+              </form>
           </div>
         </div>
       </article>
