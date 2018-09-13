@@ -18,12 +18,14 @@ require('./config/passport');
 
 app.use(logger('dev'));
 
-app.use(passport.initialize());
-app.use(passport.session({
+app.use(session({
     secret:            'project-ii',
     resave:            false,
     saveUninitialized: false,
   }));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(override('_method'));
