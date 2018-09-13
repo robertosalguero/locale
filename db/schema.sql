@@ -1,5 +1,3 @@
-\c proj_dev
-
 DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS users;
 
