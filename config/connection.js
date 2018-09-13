@@ -2,7 +2,7 @@ const pgp = require('pg-promise')();
 
 let db;
 
-if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
+if (process.NODE_ENV === 'development' || !process.env.NODE_ENV) {
   db = pgp({
 	// custom database name
 	database: 'proj_dev', 

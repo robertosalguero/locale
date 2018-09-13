@@ -18,12 +18,6 @@ require('./config/passport');
 
 app.use(logger('dev'));
 
-app.use(session({
-    secret:            'project-ii',
-    resave:            false,
-    saveUninitialized: false,
-  }));
-
 app.use(passport.initialize());
 app.use(passport.session());
 
