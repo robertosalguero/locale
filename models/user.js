@@ -45,6 +45,7 @@ async function login(name, password) {
   }
 }
   function update(user) {
+    console.log(user)
     return db.one(`
     UPDATE users
     SET 
